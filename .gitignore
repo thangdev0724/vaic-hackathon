@@ -1,5 +1,6 @@
 .cursor/
 .claude/
+.vercel/
 node_modules/
 dist/
 *.local
@@ -7,3 +8,4 @@ dist/
 .env.*
 !.env.example
 .DS_Store
+.vercel
