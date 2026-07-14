@@ -76,6 +76,13 @@
     color-scheme: dark;
   }
 
+  html,
+  body {
+    /* Disables the double-tap-to-zoom gesture (PWA/app-like feel) while
+       leaving pinch-to-zoom intact for accessibility (WCAG 1.4.4). */
+    touch-action: manipulation;
+  }
+
   body {
     @apply min-h-dvh bg-canvas font-sans text-fg antialiased transition-colors duration-200;
   }
@@ -107,7 +114,9 @@
   }
 
   .input-base {
-    @apply w-full rounded-lg border border-surface-border bg-surface px-3 py-2 text-sm text-fg placeholder:text-fg-subtle transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-aurora-primary-500/30;
+    /* text-base (16px) on mobile stops iOS Safari auto-zooming on focus;
+       inputs below 16px trigger it. Slightly denser text-sm from md: up. */
+    @apply w-full rounded-lg border border-surface-border bg-surface px-3 py-2 text-base text-fg placeholder:text-fg-subtle transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-aurora-primary-500/30 md:text-sm;
   }
 
   .badge-soft {
