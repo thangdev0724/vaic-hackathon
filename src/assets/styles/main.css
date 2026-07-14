@@ -169,6 +169,18 @@
   }
 }
 
+@media (max-width: 767px) {
+  /* Belt-and-suspenders: iOS Safari auto-zooms on focus for any text-entry
+     element computed under 16px. .input-base already sets text-base (16px)
+     on mobile, but this guarantees it regardless of class overrides,
+     specificity, or stale-cache edge cases. */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
